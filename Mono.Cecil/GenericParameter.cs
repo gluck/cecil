@@ -171,13 +171,13 @@ namespace Mono.Cecil {
 		{
 		}
 
-		public GenericParameter (string name, IGenericParameterProvider owner)
+		public GenericParameter (string name, IGenericParameterProvider owner, int position = -1)
 			: base (string.Empty, name)
 		{
 			if (owner == null)
 				throw new ArgumentNullException ();
 
-			this.position = -1;
+			this.position = position;
 			this.owner = owner;
 			this.type = owner.GenericParameterType;
 			this.etype = ConvertGenericParameterType (this.type);
